@@ -1,0 +1,35 @@
+{
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.nuxt/**": true,
+    "**/.output/**": true,
+    "**/.data/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/coverage/**": true,
+    "**/.cache/**": true,
+    "**/.turbo/**": true,
+    "**/.vercel/**": true,
+    "**/playwright-report/**": true,
+    "**/test-results/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.data": true,
+    "**/.next": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/.cache": true,
+    "**/.turbo": true,
+    "**/.vercel": true,
+    "**/playwright-report": true,
+    "**/test-results": true
+  }
+}
