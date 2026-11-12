@@ -1,10 +1,10 @@
 <template>
   <section class="bg-pine-900 text-paper">
     <div class="layout-full py-20 text-center lg:py-28">
-      <p data-reveal class="flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-signal">
-        <span class="h-px w-8 bg-signal" aria-hidden="true" />
+      <p data-reveal class="flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-sage">
+        <span class="h-px w-8 bg-sage" aria-hidden="true" />
         {{ $t('cta.eyebrow') }}
-        <span class="h-px w-8 bg-signal" aria-hidden="true" />
+        <span class="h-px w-8 bg-sage" aria-hidden="true" />
       </p>
       <h2 data-reveal class="mx-auto mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl">
         {{ $t('cta.title') }}

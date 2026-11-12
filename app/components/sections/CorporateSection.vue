@@ -2,8 +2,8 @@
   <section class="border-b border-line bg-pine-900 text-paper">
     <div class="layout-full grid items-center gap-12 py-16 lg:grid-cols-12 lg:py-24">
       <div class="lg:col-span-6">
-        <p data-reveal class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-signal">
-          <span class="h-px w-8 bg-signal" aria-hidden="true" />
+        <p data-reveal class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-sage">
+          <span class="h-px w-8 bg-sage" aria-hidden="true" />
           {{ $t('corporate.eyebrow') }}
         </p>
         <h2 data-reveal class="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.75rem]">
@@ -15,7 +15,7 @@
         <ul class="mt-8 space-y-4">
           <li v-for="benefit in benefits" :key="benefit" data-reveal class="flex items-start gap-3">
             <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-signal/20">
-              <Check class="h-3.5 w-3.5 text-signal" />
+              <Check class="h-3.5 w-3.5 text-sage" />
             </span>
             <span class="text-sm leading-relaxed text-paper/85">{{ benefit }}</span>
           </li>

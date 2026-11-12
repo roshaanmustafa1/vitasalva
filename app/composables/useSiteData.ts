@@ -1,5 +1,6 @@
 import { useI18n } from 'vue-i18n'
 import { DEMO_COURSES, INSTRUCTORS, SERVICES, TESTIMONIALS } from '~/config/courses'
+import type { CourseCategory } from '~/config/courses'
 
 /**
  * Merges structural data from `~/config/courses` with translated copy from the
@@ -12,11 +13,15 @@ import { DEMO_COURSES, INSTRUCTORS, SERVICES, TESTIMONIALS } from '~/config/cour
 
 export interface LocalizedService {
   slug: string
-  image: string
+  category: CourseCategory
   title: string
   description: string
+  /** One-sentence learning outcome for course cards */
+  outcome: string
   duration: string
   audience: string
+  /** Delivery format, e.g. "In-person · small group" */
+  format: string
   highlights: string[]
 }
 
@@ -64,8 +69,10 @@ export interface LocalizedFaq {
 interface ServiceCopy {
   title: string
   description: string
+  outcome: string
   duration: string
   audience: string
+  format: string
   highlights: string[]
 }
 
@@ -169,8 +176,10 @@ export function useSiteData() {
       ...(copy[s.slug] || {
         title: '',
         description: '',
+        outcome: '',
         duration: '',
         audience: '',
+        format: '',
         highlights: [],
       }),
     }))

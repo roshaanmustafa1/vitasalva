@@ -2,12 +2,7 @@
   <div>
     <template v-if="service">
       <div class="relative overflow-hidden bg-pine-900 text-paper">
-        <img
-          :src="service.image"
-          :alt="service.title"
-          class="absolute inset-0 h-full w-full object-cover opacity-25"
-          loading="eager"
-        />
+        <div class="absolute inset-0 bg-gradient-to-br from-pine-800 to-pine-950" aria-hidden="true" />
         <div class="layout-full relative py-16 lg:py-24">
           <NuxtLink
             :to="localePath('/leistungen')"
@@ -15,8 +10,8 @@
           >
             <ArrowLeft class="h-4 w-4" /> {{ $t('pages.kurse.backToServices') }}
           </NuxtLink>
-          <p class="mt-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-signal">
-            <span class="h-px w-8 bg-signal" aria-hidden="true" /> {{ $t('pages.kurse.eyebrow') }}
+          <p class="mt-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-sage">
+            <span class="h-px w-8 bg-sage" aria-hidden="true" /> {{ $t('pages.kurse.eyebrow') }}
             <DemoBadge />
           </p>
           <h1 class="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl">

@@ -6,26 +6,34 @@
 
 /* VITASALVA design tokens */
 @theme {
-  --color-pine-950: #071c17;
-  --color-pine-900: #0c2b25;
-  --color-pine-800: #123a31;
-  --color-pine-700: #1a4a3e;
-  --color-pine-600: #256050;
-  --color-pine-500: #357663;
-  --color-paper: #f7f5ef;
-  --color-paper-deep: #efeae0;
-  --color-ink: #14201d;
-  --color-ink-soft: #4a5753;
-  --color-signal: #c98a2b;
-  --color-signal-deep: #a96f1f;
-  --color-line: #e3ded2;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  /* Forest green scale (from the reference design) */
+  --color-pine-950: #0e1d12;
+  --color-pine-900: #1a2f1f;
+  --color-pine-800: #2b472e;
+  --color-pine-700: #35603a;
+  --color-pine-600: #4a7d4e;
+  --color-pine-500: #629a66;
+  --color-sage: #9cc7a0;
+  /* Neutrals */
+  --color-canvas: #e8edf1;
+  --color-mist: #ecebe6;
+  --color-paper: #ffffff;
+  --color-paper-deep: #f3f5f2;
+  --color-ink: #111827;
+  --color-ink-soft: #4b5563;
+  --color-line: #e3e7e1;
+  /* Accent roles (kept as tokens so existing components follow the palette) */
+  --color-signal: #2b472e;
+  --color-signal-deep: #1a2f1f;
+  --color-teal: #4a8a52;
+  --color-teal-deep: #356b3c;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -54,46 +62,66 @@
 }
 
 :root {
-  --background: #f7f5ef;
-  --foreground: #14201d;
+  --background: #ffffff;
+  --foreground: #111827;
   --card: #ffffff;
-  --card-foreground: #14201d;
+  --card-foreground: #111827;
   --popover: #ffffff;
-  --popover-foreground: #14201d;
-  --primary: #0c2b25;
-  --primary-foreground: #f7f5ef;
-  --secondary: #efeae0;
-  --secondary-foreground: #14201d;
-  --muted: #efeae0;
-  --muted-foreground: #4a5753;
-  --accent: #efeae0;
-  --accent-foreground: #14201d;
-  --destructive: #9d2c1e;
-  --border: #e3ded2;
-  --input: #e3ded2;
-  --ring: #c98a2b;
-  --radius: 0.375rem;
+  --popover-foreground: #111827;
+  --primary: #2b472e;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f5f2;
+  --secondary-foreground: #111827;
+  --muted: #f3f5f2;
+  --muted-foreground: #4b5563;
+  --accent: #f3f5f2;
+  --accent-foreground: #111827;
+  --destructive: #b42318;
+  --border: #e3e7e1;
+  --input: #e3e7e1;
+  --ring: #4a7d4e;
+  --radius: 0.5rem;
+
+  /* Floating-shell layout tokens (header + hero) — one place to tune the whole look */
+  --canvas: #e8edf1;
+  --mist: #ecebe6;
+  --canvas-p: 0rem; /* outer page margin (removed: no canvas around the shell) */
+  --shell-p: 0.5rem; /* white ring between shell edge and hero panel */
+  --r: 1.5rem; /* panel radius = notch radius */
+  --hdr-h: 4rem; /* header row height */
+}
+@media (min-width: 640px) {
+  :root {
+    --shell-p: 0.625rem;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --shell-p: 0.75rem;
+    --r: 2rem;
+    --hdr-h: 4.75rem;
+  }
 }
 
 .dark {
-  --background: #0c2b25;
-  --foreground: #f7f5ef;
-  --card: #123a31;
-  --card-foreground: #f7f5ef;
-  --popover: #123a31;
-  --popover-foreground: #f7f5ef;
-  --primary: #f7f5ef;
-  --primary-foreground: #0c2b25;
-  --secondary: #1a4a3e;
-  --secondary-foreground: #f7f5ef;
-  --muted: #1a4a3e;
-  --muted-foreground: #b9c4bf;
-  --accent: #1a4a3e;
-  --accent-foreground: #f7f5ef;
-  --destructive: #d97b6a;
-  --border: #1a4a3e;
-  --input: #1a4a3e;
-  --ring: #c98a2b;
+  --background: #1a2f1f;
+  --foreground: #f3f5f2;
+  --card: #2b472e;
+  --card-foreground: #f3f5f2;
+  --popover: #2b472e;
+  --popover-foreground: #f3f5f2;
+  --primary: #f3f5f2;
+  --primary-foreground: #1a2f1f;
+  --secondary: #35603a;
+  --secondary-foreground: #f3f5f2;
+  --muted: #35603a;
+  --muted-foreground: #d1d5db;
+  --accent: #35603a;
+  --accent-foreground: #f3f5f2;
+  --destructive: #f87171;
+  --border: #35603a;
+  --input: #35603a;
+  --ring: #629a66;
 }
 
 @layer base {
@@ -106,8 +134,12 @@
   body {
     @apply bg-paper text-ink font-sans antialiased;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
   ::selection {
-    background: #c98a2b;
+    background: #2b472e;
     color: #fff;
   }
 }
@@ -137,10 +169,207 @@
 
 /* Swiper pagination tuning (testimonials) */
 .swiper-pagination-bullet {
-  background: #0c2b25;
+  background: #2b472e;
   opacity: 0.25;
 }
 .swiper-pagination-bullet-active {
-  background: #c98a2b;
+  background: #4a7d4e;
   opacity: 1;
+}
+
+/* =====================================================================
+   Floating-shell header: three white blocks (logo | nav | CTA) with
+   inverted-radius ("notch") joints. Everything derives from --r and the
+   content width of each block, so it adapts to any language / link count.
+   ===================================================================== */
+.site-header {
+  position: sticky;
+  z-index: 50;
+  pointer-events: none;
+  --hdr-px: var(--canvas-p);
+}
+/* Home: header overlays the hero panel exactly (negative margin = own height). */
+.site-header--home {
+  --hdr-px: calc(var(--canvas-p) + var(--shell-p));
+  top: calc(0.75rem - var(--canvas-p) - var(--shell-p));
+  padding: calc(var(--canvas-p) + var(--shell-p)) var(--hdr-px) 0;
+  margin-bottom: calc(-1 * (var(--canvas-p) + var(--shell-p) + var(--hdr-h)));
+}
+/* Other pages: header sits in flow on a canvas band. */
+.site-header--page {
+  top: 0;
+  padding: var(--shell-p);
+  background: #fff;
+}
+.hdr-row {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: var(--hdr-h);
+}
+.hdr-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  background: #fff;
+}
+.hdr-block--left {
+  padding-left: 1.25rem;
+  padding-right: clamp(1rem, 2.2vw, 2rem);
+}
+.hdr-block--right {
+  gap: 0.625rem;
+  padding-left: clamp(1rem, 2.2vw, 2rem);
+  padding-right: 0.5rem;
+}
+.hdr-nav {
+  pointer-events: auto;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+}
+.hdr-nav a {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  transition: color 0.15s;
+}
+.hdr-nav a:hover,
+.hdr-nav a.router-link-active {
+  color: var(--color-pine-700);
+}
+.hdr-nav a.router-link-active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.45rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: var(--color-pine-700);
+  transform: translateX(-50%);
+}
+
+/* Overlay mode (home, scroll position = top): notched blocks over the hero panel. */
+.site-header[data-mode='overlay'] .hdr-block--left {
+  border-bottom-right-radius: var(--r);
+}
+.site-header[data-mode='overlay'] .hdr-block--right {
+  border-bottom-left-radius: var(--r);
+}
+.site-header[data-mode='overlay'] .hdr-block::before,
+.site-header[data-mode='overlay'] .hdr-block::after {
+  content: '';
+  position: absolute;
+  width: var(--r);
+  height: var(--r);
+  pointer-events: none;
+}
+/* concave "ears": white corner, transparent quarter-circle */
+.site-header[data-mode='overlay'] .hdr-block--left::after {
+  top: 0;
+  left: 100%;
+  background: radial-gradient(circle at 100% 100%, transparent calc(var(--r) - 1px), #fff var(--r));
+}
+.site-header[data-mode='overlay'] .hdr-block--left::before {
+  top: 100%;
+  left: 0;
+  background: radial-gradient(circle at 100% 100%, transparent calc(var(--r) - 1px), #fff var(--r));
+}
+.site-header[data-mode='overlay'] .hdr-block--right::after {
+  top: 0;
+  right: 100%;
+  background: radial-gradient(circle at 0 100%, transparent calc(var(--r) - 1px), #fff var(--r));
+}
+.site-header[data-mode='overlay'] .hdr-block--right::before {
+  top: 100%;
+  right: 0;
+  background: radial-gradient(circle at 0 100%, transparent calc(var(--r) - 1px), #fff var(--r));
+}
+
+/* Solid mode (scrolled, or any non-home page): one floating white bar. */
+.site-header[data-mode='solid'] .hdr-row {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px -8px rgba(14, 29, 18, 0.18), 0 0 0 1px var(--color-line);
+}
+.site-header[data-mode='solid'] .hdr-block {
+  background: transparent;
+}
+.hdr-drawer {
+  position: absolute;
+  top: 100%;
+  left: var(--hdr-px);
+  right: var(--hdr-px);
+  margin-top: 0.5rem;
+  pointer-events: auto;
+}
+
+/* Hero panel fade (left side readable, image shows on the right) */
+.hero-fade {
+  background: linear-gradient(
+    90deg,
+    rgb(236 235 230 / 0.92) 0%,
+    rgb(236 235 230 / 0.8) 22%,
+    rgb(236 235 230 / 0.22) 35%,
+    rgb(236 235 230 / 0) 47%
+  );
+}
+.hero-fade-top {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.65) 0%, rgb(255 255 255 / 0) 100%);
+}
+@media (max-width: 1023px) {
+  .hero-fade {
+    background: linear-gradient(180deg, rgb(236 235 230 / 0.94) 0%, rgb(236 235 230 / 0.86) 60%, rgb(236 235 230 / 0.55) 100%);
+  }
+}
+
+/* On desktop the photo occupies the right part of the panel and dissolves into the mist on its left edge. */
+@media (min-width: 1024px) {
+  .hero-photo {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+  }
+}
+
+/* Hero slider: copy animates in on the active slide; progress bar on the active control */
+.hero-anim {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.hero-slide.swiper-slide-active .hero-anim {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(0.25s + var(--i, 0) * 0.09s);
+}
+.hero-swiper .swiper-slide {
+  height: auto;
+}
+.hero-progress {
+  transform-origin: left center;
+  animation: hero-progress linear forwards;
+}
+@keyframes hero-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim { transition: none; opacity: 1; transform: none; }
+  .hero-progress { animation: none; transform: scaleX(1); }
+}
+
+/* Circular progress ring on the active hero slide control */
+.hero-ring {
+  stroke-dashoffset: 100;
+  animation: hero-ring linear forwards;
+}
+@keyframes hero-ring {
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring { animation: none; stroke-dashoffset: 0; }
 }

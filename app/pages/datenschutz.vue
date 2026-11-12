@@ -2,8 +2,8 @@
   <div>
     <div class="bg-pine-900 text-paper">
       <div class="layout-full py-16 lg:py-20">
-        <p class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-signal">
-          <span class="h-px w-8 bg-signal" aria-hidden="true" /> {{ $t('pages.datenschutz.eyebrow') }}
+        <p class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-sage">
+          <span class="h-px w-8 bg-sage" aria-hidden="true" /> {{ $t('pages.datenschutz.eyebrow') }}
         </p>
         <h1 class="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-5xl">{{ $t('pages.datenschutz.title') }}</h1>
       </div>
