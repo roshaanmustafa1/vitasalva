@@ -12,16 +12,20 @@
             class="flex items-center gap-2.5 transition-opacity hover:opacity-90"
             :aria-label="$t('nav.homeAria')"
           >
-            <svg class="h-9 w-9 shrink-0 sm:h-10 sm:w-10" viewBox="0 0 40 44" aria-hidden="true">
-              <path d="M20 2 4 8v13c0 10 6.8 18.2 16 21 9.2-2.8 16-11 16-21V8L20 2Z" class="fill-pine-800" />
-              <path d="M17 12h6v7h7v6h-7v7h-6v-7h-7v-6h7v-7Z" fill="#fff" />
-            </svg>
+            <img
+              src="~/assets/images/vitasalva-emblem.png"
+              alt=""
+              class="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12"
+              width="256"
+              height="256"
+              loading="eager"
+            />
             <span class="flex flex-col leading-none">
-              <span class="font-display text-[1.35rem] font-extrabold tracking-[-0.02em] text-ink">
-                Vita<span class="text-pine-600">Salva</span>
+              <span class="font-display text-[1.3rem] font-extrabold uppercase tracking-[-0.01em] text-pine-700">
+                VitaSalva
               </span>
-              <span class="mt-1 hidden text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-ink-soft sm:block">
-                {{ $t('nav.tagline') }}
+              <span class="mt-1 hidden text-[0.6rem] font-bold uppercase tracking-[0.16em] text-pine-600 sm:block">
+                Learn to Help
               </span>
             </span>
           </NuxtLink>
@@ -39,19 +43,7 @@
             <NuxtLink :to="switchLocalePath('de') || '/'" class="px-3 py-2 transition-colors" :class="locale === 'de' ? 'bg-pine-800 text-white' : 'text-ink hover:text-pine-700'" :aria-current="locale === 'de' ? 'true' : undefined">DE</NuxtLink>
             <NuxtLink :to="switchLocalePath('en') || '/en'" class="px-3 py-2 transition-colors" :class="locale === 'en' ? 'bg-pine-800 text-white' : 'text-ink hover:text-pine-700'" :aria-current="locale === 'en' ? 'true' : undefined">EN</NuxtLink>
           </div>
-          <NuxtLink
-            :to="localePath('/termine')"
-            class="hidden items-center rounded-full bg-pine-800 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-pine-900 sm:inline-flex"
-          >
-            {{ $t('nav.bookCta') }}
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/termine')"
-            class="hidden h-11 w-11 items-center justify-center rounded-full bg-pine-900 text-white transition-colors hover:bg-pine-700 sm:inline-flex"
-            :aria-label="$t('nav.bookCta')"
-          >
-            <ArrowUpRight class="h-4 w-4" />
-          </NuxtLink>
+          <AppButton :to="localePath('/termine')" class="hidden sm:inline-flex">{{ $t('nav.bookCta') }}</AppButton>
           <button
             type="button"
             class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-pine-800 text-white xl:hidden"
@@ -81,14 +73,7 @@
             <NuxtLink :to="switchLocalePath('de') || '/'" class="px-3 py-2 transition-colors" :class="locale === 'de' ? 'bg-pine-800 text-white' : 'text-ink hover:text-pine-700'" :aria-current="locale === 'de' ? 'true' : undefined">DE</NuxtLink>
             <NuxtLink :to="switchLocalePath('en') || '/en'" class="px-3 py-2 transition-colors" :class="locale === 'en' ? 'bg-pine-800 text-white' : 'text-ink hover:text-pine-700'" :aria-current="locale === 'en' ? 'true' : undefined">EN</NuxtLink>
           </div>
-            <NuxtLink
-              :to="localePath('/termine')"
-              class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-pine-800 px-5 py-3 text-sm font-semibold text-white"
-              @click="mobileOpen = false"
-            >
-              {{ $t('nav.bookCta') }}
-              <ArrowUpRight class="h-4 w-4" />
-            </NuxtLink>
+            <AppButton :to="localePath('/termine')" block class="mt-2" @click="mobileOpen = false">{{ $t('nav.bookCta') }}</AppButton>
           </nav>
         </div>
       </div>
@@ -107,11 +92,11 @@
             :aria-label="$t('nav.homeAria')"
           >
             <img
-              src="~/assets/images/logo-white-text.png"
+              src="~/assets/images/logo-vitasalva.png"
               alt="VITASALVA – Learn to Help"
-              class="h-16 w-auto object-contain"
-              width="326"
-              height="350"
+              class="h-28 w-auto rounded-2xl bg-white object-contain p-3"
+              width="420"
+              height="452"
               loading="lazy"
             />
           </NuxtLink>
@@ -179,7 +164,7 @@
 
 <script setup lang="ts">
 import { useLocalePath, useSwitchLocalePath } from '#i18n'
-import { ArrowUpRight, Menu, X } from '@lucide/vue'
+import { Menu, X } from '@lucide/vue'
 import { useI18n } from 'vue-i18n'
 import { useSiteData } from '~/composables/useSiteData'
 

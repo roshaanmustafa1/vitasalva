@@ -253,51 +253,80 @@
   transform: translateX(-50%);
 }
 
-/* Overlay mode (home, scroll position = top): notched blocks over the hero panel. */
-.site-header[data-mode='overlay'] .hdr-block--left {
-  border-bottom-right-radius: var(--r);
+/* Mode switch (overlay <-> solid) is fully transitioned: row background/shadow/radius,
+   block corner radii and the concave ears all animate instead of toggling. */
+.hdr-row {
+  background-color: rgb(255 255 255 / 0);
+  border-radius: 0;
+  box-shadow: 0 10px 30px -8px rgb(14 29 18 / 0), 0 0 0 1px rgb(227 231 225 / 0);
+  transition: background-color 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease;
 }
-.site-header[data-mode='overlay'] .hdr-block--right {
-  border-bottom-left-radius: var(--r);
+.hdr-block {
+  transition: border-radius 0.4s ease;
 }
-.site-header[data-mode='overlay'] .hdr-block::before,
-.site-header[data-mode='overlay'] .hdr-block::after {
+.hdr-block::before,
+.hdr-block::after {
   content: '';
   position: absolute;
   width: var(--r);
   height: var(--r);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 /* concave "ears": white corner, transparent quarter-circle */
-.site-header[data-mode='overlay'] .hdr-block--left::after {
+.hdr-block--left::after {
   top: 0;
   left: 100%;
   background: radial-gradient(circle at 100% 100%, transparent calc(var(--r) - 1px), #fff var(--r));
 }
-.site-header[data-mode='overlay'] .hdr-block--left::before {
+.hdr-block--left::before {
   top: 100%;
   left: 0;
   background: radial-gradient(circle at 100% 100%, transparent calc(var(--r) - 1px), #fff var(--r));
 }
-.site-header[data-mode='overlay'] .hdr-block--right::after {
+.hdr-block--right::after {
   top: 0;
   right: 100%;
   background: radial-gradient(circle at 0 100%, transparent calc(var(--r) - 1px), #fff var(--r));
 }
-.site-header[data-mode='overlay'] .hdr-block--right::before {
+.hdr-block--right::before {
   top: 100%;
   right: 0;
   background: radial-gradient(circle at 0 100%, transparent calc(var(--r) - 1px), #fff var(--r));
 }
 
+/* Overlay mode (home, scroll position = top): notched blocks over the hero panel. */
+.site-header[data-mode='overlay'] .hdr-block--left {
+  border-radius: 0 0 var(--r) 0;
+}
+.site-header[data-mode='overlay'] .hdr-block--right {
+  border-radius: 0 0 0 var(--r);
+}
+.site-header[data-mode='overlay'] .hdr-block::before,
+.site-header[data-mode='overlay'] .hdr-block::after {
+  opacity: 1;
+}
+
 /* Solid mode (scrolled, or any non-home page): one floating white bar. */
 .site-header[data-mode='solid'] .hdr-row {
-  background: #fff;
+  background-color: #fff;
   border-radius: 1.25rem;
-  box-shadow: 0 10px 30px -8px rgba(14, 29, 18, 0.18), 0 0 0 1px var(--color-line);
+  box-shadow: 0 10px 30px -8px rgb(14 29 18 / 0.18), 0 0 0 1px var(--color-line);
 }
-.site-header[data-mode='solid'] .hdr-block {
-  background: transparent;
+.site-header[data-mode='solid'] .hdr-block--left {
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+.site-header[data-mode='solid'] .hdr-block--right {
+  border-radius: 0 1.25rem 1.25rem 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hdr-row,
+  .hdr-block,
+  .hdr-block::before,
+  .hdr-block::after {
+    transition: none;
+  }
 }
 .hdr-drawer {
   position: absolute;

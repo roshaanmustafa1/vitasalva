@@ -47,16 +47,7 @@
                 <p class="hero-anim mt-6 max-w-md text-base leading-relaxed text-ink-soft lg:text-lg" style="--i: 2">
                   {{ slide.lead }}
                 </p>
-                <NuxtLink
-                  :to="localePath(slide.to)"
-                  class="hero-anim mt-8 inline-flex items-center gap-5 rounded-full bg-pine-800 py-2 pl-7 pr-2 text-sm font-semibold text-white transition-colors hover:bg-pine-900"
-                  style="--i: 3"
-                >
-                  {{ slide.cta }}
-                  <span class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-pine-900">
-                    <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
-                  </span>
-                </NuxtLink>
+                <AppButton :to="localePath(slide.to)" class="hero-anim mt-8" style="--i: 3">{{ slide.cta }}</AppButton>
               </div>
             </div>
           </SwiperSlide>
@@ -136,7 +127,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, nextTick, ref } from 'vue'
 import { useLocalePath } from '#i18n'
-import { ArrowUpRight, ShieldCheck, Stethoscope, Users } from '@lucide/vue'
+import { ShieldCheck, Stethoscope, Users } from '@lucide/vue'
 import { gsap } from 'gsap'
 import { A11y, Autoplay, EffectFade } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'

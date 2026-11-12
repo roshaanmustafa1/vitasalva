@@ -30,19 +30,8 @@
           </li>
         </ol>
         <div data-reveal class="mt-12 flex flex-wrap gap-4">
-          <NuxtLink
-            :to="localePath('/termine')"
-            class="inline-flex items-center gap-2 rounded-sm bg-pine-900 px-7 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-pine-700"
-          >
-            {{ $t('pages.leistungen.ctaDate') }}
-            <ArrowRight class="h-4 w-4" />
-          </NuxtLink>
-          <NuxtLink
-            :to="localePath('/kontakt')"
-            class="inline-flex items-center gap-2 rounded-sm border border-pine-900/25 bg-white px-7 py-3.5 text-sm font-semibold text-pine-900 transition-colors hover:border-pine-900"
-          >
-            {{ $t('pages.leistungen.ctaAdvice') }}
-          </NuxtLink>
+          <AppButton :to="localePath('/termine')">{{ $t('pages.leistungen.ctaDate') }}</AppButton>
+          <AppButton :to="localePath('/kontakt')" variant="outline">{{ $t('pages.leistungen.ctaAdvice') }}</AppButton>
         </div>
       </div>
     </section>
@@ -51,7 +40,7 @@
 
 <script setup lang="ts">
 import { useLocalePath } from '#i18n'
-import { ArrowRight } from '@lucide/vue'
+
 import ServicesSection from '~/components/sections/ServicesSection.vue'
 import { useI18n } from 'vue-i18n'
 import { usePageSeo } from '~/composables/usePageSeo'

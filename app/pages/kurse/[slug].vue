@@ -71,13 +71,7 @@
                   </div>
                 </div>
               </dl>
-              <NuxtLink
-                :to="localePath('/termine')"
-                class="mt-7 flex items-center justify-center gap-2 rounded-sm bg-pine-900 px-6 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-pine-700"
-              >
-                {{ $t('pages.kurse.findDate') }}
-                <ArrowRight class="h-4 w-4" />
-              </NuxtLink>
+              <AppButton :to="localePath('/termine')" block class="mt-7">{{ $t('pages.kurse.findDate') }}</AppButton>
             </div>
           </aside>
         </div>
@@ -115,13 +109,7 @@
       <p class="mx-auto mt-4 max-w-md text-base leading-relaxed text-ink-soft">
         {{ $t('pages.kurse.notFoundText') }}
       </p>
-      <NuxtLink
-        :to="localePath('/leistungen')"
-        class="mt-8 inline-flex items-center gap-2 rounded-sm bg-pine-900 px-7 py-3.5 text-sm font-semibold text-paper"
-      >
-        {{ $t('pages.kurse.viewAllServices') }}
-        <ArrowRight class="h-4 w-4" />
-      </NuxtLink>
+      <AppButton :to="localePath('/leistungen')" class="mt-8">{{ $t('pages.kurse.viewAllServices') }}</AppButton>
     </div>
   </div>
 </template>

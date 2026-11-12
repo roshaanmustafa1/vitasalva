@@ -107,13 +107,7 @@
               class="w-full rounded-sm border border-line bg-paper px-4 py-3 text-sm focus:border-signal focus:outline-none"
             />
           </label>
-          <button
-            type="submit"
-            class="inline-flex items-center gap-2 rounded-sm bg-pine-900 px-7 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-pine-700"
-          >
-            {{ $t('pages.unternehmen.form.submit') }}
-            <ArrowRight class="h-4 w-4" />
-          </button>
+          <AppButton type="submit">{{ $t('pages.unternehmen.form.submit') }}</AppButton>
         </form>
         <div v-else class="mt-10 border border-line bg-white p-8 text-center">
           <CheckCircle2 class="mx-auto h-10 w-10 text-signal-deep" />
@@ -121,13 +115,7 @@
           <p class="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
             {{ $t('pages.unternehmen.form.thanksText') }}
           </p>
-          <button
-            type="button"
-            class="mt-6 inline-flex items-center gap-2 rounded-sm border border-pine-900/25 bg-white px-6 py-3 text-sm font-semibold text-pine-900"
-            @click="sent = false"
-          >
-            {{ $t('pages.unternehmen.form.sendAnother') }}
-          </button>
+          <AppButton type="button" variant="outline" class="mt-6" @click="sent = false">{{ $t('pages.unternehmen.form.sendAnother') }}</AppButton>
         </div>
       </div>
     </section>
@@ -135,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRight, Building2, CheckCircle2, MapPin, Users } from '@lucide/vue'
+import { Building2, CheckCircle2, MapPin, Users } from '@lucide/vue'
 import { useI18n } from 'vue-i18n'
 import { usePageSeo } from '~/composables/usePageSeo'
 import { useReveal } from '~/composables/useReveal'

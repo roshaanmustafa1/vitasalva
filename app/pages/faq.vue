@@ -22,13 +22,7 @@
           <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink-soft">
             {{ $t('pages.faq.missingText') }}
           </p>
-          <NuxtLink
-            :to="localePath('/kontakt')"
-            class="mt-5 inline-flex items-center gap-2 rounded-sm bg-pine-900 px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-pine-700"
-          >
-            {{ $t('pages.faq.contactCta') }}
-            <ArrowRight class="h-4 w-4" />
-          </NuxtLink>
+          <AppButton :to="localePath('/kontakt')" class="mt-5">{{ $t('pages.faq.contactCta') }}</AppButton>
         </div>
       </div>
     </section>
@@ -37,7 +31,7 @@
 
 <script setup lang="ts">
 import { useLocalePath } from '#i18n'
-import { ArrowRight } from '@lucide/vue'
+
 import { usePageSeo } from '~/composables/usePageSeo'
 import { useSiteData } from '~/composables/useSiteData'
 

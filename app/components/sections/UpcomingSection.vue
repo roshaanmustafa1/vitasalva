@@ -17,16 +17,16 @@
           v-for="course in upcoming"
           :key="course.id"
           data-reveal
-          class="flex flex-col border border-line bg-white p-6"
+          class="flex flex-col rounded-2xl border border-line bg-white p-6 transition-shadow duration-300 hover:shadow-[0_18px_40px_-24px_rgba(14,29,18,0.4)]"
         >
           <div class="flex items-start justify-between gap-3">
-            <div class="border border-line bg-paper px-3 py-2 text-center">
+            <div class="rounded-xl border border-line bg-paper px-3 py-2 text-center">
               <p class="font-display text-2xl font-bold leading-none text-pine-900">{{ course.day }}</p>
               <p class="mt-1 text-[11px] font-semibold uppercase tracking-widest text-signal-deep">
                 {{ course.monthYear }}
               </p>
             </div>
-            <span class="rounded-sm bg-pine-900 px-2.5 py-1 text-xs font-semibold text-paper">
+            <span class="rounded-full bg-pine-900 px-3 py-1 text-xs font-semibold text-paper">
               {{ $t('upcoming.spotsFree', { n: course.spotsLeft }) }}
             </span>
           </div>
@@ -37,8 +37,8 @@
           <p class="mt-3 flex items-center gap-2 text-sm text-ink-soft">
             <MapPin class="h-4 w-4 shrink-0 text-signal-deep" /> {{ course.city }} · {{ course.durationLabel }}
           </p>
-          <div class="mt-4 h-1.5 w-full bg-paper-deep" aria-hidden="true">
-            <div class="h-full bg-signal" :style="{ width: `${(course.spotsLeft / course.spotsTotal) * 100}%` }" />
+          <div class="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-paper-deep" aria-hidden="true">
+            <div class="h-full rounded-full bg-signal" :style="{ width: `${(course.spotsLeft / course.spotsTotal) * 100}%` }" />
           </div>
           <NuxtLink
             :to="localePath(`/termine?kurs=${course.id}`)"
@@ -51,13 +51,7 @@
       </div>
 
       <div data-reveal class="mt-10 text-center">
-        <NuxtLink
-          :to="localePath('/termine')"
-          class="inline-flex items-center gap-2 rounded-sm border border-pine-900/25 bg-white px-7 py-3.5 text-sm font-semibold text-pine-900 transition-colors hover:border-pine-900"
-        >
-          {{ $t('upcoming.viewAll') }}
-          <ArrowRight class="h-4 w-4" />
-        </NuxtLink>
+        <AppButton :to="localePath('/termine')" variant="outline">{{ $t('upcoming.viewAll') }}</AppButton>
       </div>
     </div>
   </section>

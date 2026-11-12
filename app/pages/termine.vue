@@ -91,13 +91,7 @@
               class="w-full rounded-sm border border-line bg-paper px-4 py-3 text-sm focus:border-signal focus:outline-none"
             />
           </label>
-          <button
-            type="submit"
-            class="inline-flex items-center gap-2 rounded-sm bg-pine-900 px-7 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-pine-700"
-          >
-            {{ $t('pages.termine.form.submit') }}
-            <ArrowRight class="h-4 w-4" />
-          </button>
+          <AppButton type="submit">{{ $t('pages.termine.form.submit') }}</AppButton>
           <p class="text-xs leading-relaxed text-ink-soft">
             {{ $t('pages.termine.form.demoNote') }}
           </p>
@@ -109,13 +103,7 @@
           <p class="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
             {{ $t('pages.termine.form.thanksText') }}
           </p>
-          <button
-            type="button"
-            class="mt-6 inline-flex items-center gap-2 rounded-sm border border-pine-900/25 bg-white px-6 py-3 text-sm font-semibold text-pine-900"
-            @click="sent = false"
-          >
-            {{ $t('pages.termine.form.sendAnother') }}
-          </button>
+          <AppButton type="button" variant="outline" class="mt-6" @click="sent = false">{{ $t('pages.termine.form.sendAnother') }}</AppButton>
         </div>
       </div>
     </section>
@@ -123,7 +111,7 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRight, CheckCircle2 } from '@lucide/vue'
+import { CheckCircle2 } from '@lucide/vue'
 import CourseFinderSection from '~/components/sections/CourseFinderSection.vue'
 import { usePageSeo } from '~/composables/usePageSeo'
 import { useReveal } from '~/composables/useReveal'

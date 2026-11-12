@@ -5,8 +5,8 @@
     <CourseFinderSection />
     <ServicesSection />
     <AboutSection />
-    <UpcomingSection />
     <CorporateSection />
+    <UpcomingSection />
     <InstructorsSection />
     <WhySection />
     <TestimonialsSection />

@@ -14,6 +14,7 @@ import type { CourseCategory } from '~/config/courses'
 export interface LocalizedService {
   slug: string
   category: CourseCategory
+  image: string
   title: string
   description: string
   /** One-sentence learning outcome for course cards */
@@ -33,6 +34,7 @@ export interface LocalizedCourse {
   dateEnd: string
   spotsLeft: number
   spotsTotal: number
+  image: string
   /** Localised title, e.g. "Erste-Hilfe-Kurs (Grundkurs)" / "First Aid Course (Basic Course)" */
   title: string
   /** Localised display date, e.g. "Sa., 5. Dezember 2026" / "Sat, 5 December 2026" */
