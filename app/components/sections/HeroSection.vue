@@ -26,7 +26,7 @@
             <div class="hero-fade absolute inset-0 -z-10" aria-hidden="true" />
 
             <div
-              class="relative flex h-full flex-col px-6 pb-44 pt-[calc(var(--hdr-h)+2.5rem)] sm:px-10 lg:px-16 lg:pb-36"
+              class="relative flex h-full flex-col px-5 pb-60 pt-[calc(var(--hdr-h)+2rem)] sm:px-10 sm:pb-44 sm:pt-[calc(var(--hdr-h)+2.5rem)] lg:px-16 lg:pb-36"
             >
               <div class="max-w-[42rem]">
                 <p
@@ -57,20 +57,20 @@
 
         <!-- Bottom row: stats (left) + the 3 slides as controls (right) -->
         <div
-          class="pointer-events-none relative z-10 col-start-1 row-start-1 flex flex-col justify-end px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10"
+          class="pointer-events-none relative z-10 col-start-1 row-start-1 flex flex-col justify-end px-5 pb-6 sm:px-10 sm:pb-8 lg:px-16 lg:pb-10"
         >
-          <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <ul data-hero class="pointer-events-auto flex flex-wrap gap-y-4">
+          <div class="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <ul data-hero class="pointer-events-auto grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-y-4">
             <li
               v-for="(stat, i) in stats"
               :key="stat.title"
-              class="flex items-center gap-3 pr-6 sm:pr-8"
-              :class="i > 0 ? 'border-l border-ink/15 pl-6 sm:pl-8' : ''"
+              class="flex min-w-0 flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-3 sm:pr-8"
+              :class="i > 0 ? 'sm:border-l sm:border-ink/15 sm:pl-8' : ''"
             >
               <component :is="statIcons[i]" class="h-7 w-7 shrink-0 text-ink-soft" aria-hidden="true" />
               <span class="leading-tight">
-                <span class="block text-sm font-bold text-ink">{{ stat.title }}</span>
-                <span class="block text-xs text-ink-soft">{{ stat.text }}</span>
+                <span class="block text-xs font-bold text-ink sm:text-sm">{{ stat.title }}</span>
+                <span class="block text-[0.7rem] text-ink-soft sm:text-xs">{{ stat.text }}</span>
               </span>
             </li>
           </ul>

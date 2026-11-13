@@ -43,7 +43,9 @@
             <NuxtLink :to="switchLocalePath('de') || '/'" class="px-3 py-2 transition-colors" :class="locale === 'de' ? 'bg-pine-800 text-white' : 'text-ink hover:text-pine-700'" :aria-current="locale === 'de' ? 'true' : undefined">DE</NuxtLink>
             <NuxtLink :to="switchLocalePath('en') || '/en'" class="px-3 py-2 transition-colors" :class="locale === 'en' ? 'bg-pine-800 text-white' : 'text-ink hover:text-pine-700'" :aria-current="locale === 'en' ? 'true' : undefined">EN</NuxtLink>
           </div>
-          <AppButton :to="localePath('/termine')" class="hidden sm:inline-flex">{{ $t('nav.bookCta') }}</AppButton>
+          <div class="hidden sm:block">
+            <AppButton :to="localePath('/termine')">{{ $t('nav.bookCta') }}</AppButton>
+          </div>
           <button
             type="button"
             class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-pine-800 text-white xl:hidden"

@@ -57,7 +57,7 @@
             :loop="true"
             :speed="700"
             :autoplay="{ delay: 6500, disableOnInteraction: false }"
-            class="!overflow-visible lg:!overflow-hidden"
+            class="!overflow-hidden"
             @swiper="onSwiper"
             @slide-change="onSlideChange"
           >
