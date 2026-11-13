@@ -233,29 +233,29 @@
   flex: 1;
   align-items: center;
   justify-content: center;
-  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+  gap: 0.5rem;
 }
 .hdr-nav a {
   position: relative;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 9999px;
+  background: var(--color-paper-deep);
   font-size: 0.875rem;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--color-ink);
-  transition: color 0.15s;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
 }
-.hdr-nav a:hover,
-.hdr-nav a.router-link-active {
+.hdr-nav a:hover {
+  background: #fff;
+  border-color: var(--color-pine-600);
   color: var(--color-pine-700);
 }
-.hdr-nav a.router-link-active::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -0.45rem;
-  width: 0.25rem;
-  height: 0.25rem;
-  border-radius: 9999px;
-  background: var(--color-pine-700);
-  transform: translateX(-50%);
+.hdr-nav a.router-link-active {
+  background: var(--color-pine-800);
+  border-color: var(--color-pine-800);
+  color: #fff;
 }
 
 /* Mode switch (overlay <-> solid) is fully transitioned: row background/shadow/radius,
@@ -316,14 +316,20 @@
 /* Desktop home hero is dark green: nav links sit directly on it, so they go light. */
 @media (min-width: 1024px) {
   .site-header[data-mode='overlay'] .hdr-nav a {
-    color: rgb(255 255 255 / 0.9);
+    color: rgb(255 255 255 / 0.92);
+    background: rgb(255 255 255 / 0.1);
+    border-color: rgb(255 255 255 / 0.28);
+    backdrop-filter: blur(6px);
   }
-  .site-header[data-mode='overlay'] .hdr-nav a:hover,
+  .site-header[data-mode='overlay'] .hdr-nav a:hover {
+    background: rgb(255 255 255 / 0.2);
+    border-color: rgb(255 255 255 / 0.55);
+    color: #fff;
+  }
   .site-header[data-mode='overlay'] .hdr-nav a.router-link-active {
-    color: var(--color-sage);
-  }
-  .site-header[data-mode='overlay'] .hdr-nav a.router-link-active::after {
-    background: var(--color-sage);
+    background: #fff;
+    border-color: #fff;
+    color: var(--color-pine-800);
   }
 }
 
