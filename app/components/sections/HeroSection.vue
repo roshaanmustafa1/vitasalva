@@ -1,7 +1,7 @@
 <template>
   <section class="flex min-h-[100svh] flex-col bg-white">
     <div class="flex flex-1 flex-col rounded-[calc(var(--r)+var(--shell-p))] bg-white p-[var(--shell-p)]">
-      <div class="relative isolate grid flex-1 grid-cols-[minmax(0,1fr)] grid-rows-[1fr] overflow-hidden rounded-[var(--r)] bg-mist">
+      <div class="relative isolate grid flex-1 grid-cols-[minmax(0,1fr)] grid-rows-[1fr] overflow-hidden rounded-[var(--r)] bg-mist lg:bg-pine-950">
         <!-- Slider: background photo + copy change together per slide -->
         <Swiper
           class="hero-swiper col-start-1 row-start-1 w-full min-w-0 max-w-full"
@@ -26,34 +26,39 @@
             <div class="hero-fade absolute inset-0 -z-10" aria-hidden="true" />
 
             <div
-              class="relative flex h-full flex-col px-5 pb-60 pt-[calc(var(--hdr-h)+2rem)] sm:px-10 sm:pb-44 sm:pt-[calc(var(--hdr-h)+2.5rem)] lg:px-16 lg:pb-36"
+              class="relative flex h-full flex-col px-5 pb-56 pt-[calc(var(--hdr-h)+1.25rem)] sm:px-10 sm:pb-44 sm:pt-[calc(var(--hdr-h)+2.5rem)] lg:px-16 lg:pb-36"
             >
               <div class="max-w-[42rem]">
                 <p
-                  class="hero-anim flex items-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-ink-soft sm:text-xs"
+                  class="hero-anim flex items-center gap-4 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-black sm:text-xs sm:font-semibold sm:tracking-[0.26em] sm:text-ink-soft lg:text-sage"
                   style="--i: 0"
                 >
                   {{ slide.eyebrow }}
-                  <span class="hidden h-px w-24 bg-ink-soft/40 sm:block" aria-hidden="true" />
+                  <span class="hidden h-px w-24 bg-ink-soft/40 sm:block lg:bg-sage/50" aria-hidden="true" />
                 </p>
                 <component
                   :is="i === 0 ? 'h1' : 'h2'"
-                  class="hero-anim mt-6 font-display text-[2.35rem] font-extrabold leading-[1.08] tracking-[-0.02em] text-ink sm:text-5xl lg:text-[3rem]"
+                  class="hero-anim mt-3 font-display text-[1.85rem] font-extrabold leading-[1.1] tracking-[-0.02em] text-black sm:mt-6 sm:text-5xl sm:text-ink lg:text-[3.4rem] lg:text-white"
                   style="--i: 1"
                 >
                   <span class="block">{{ slide.titleA }}</span>
-                  <span class="block text-pine-700">{{ slide.titleB }}</span>
+                  <span class="block text-pine-900 sm:text-pine-700 lg:text-sage">{{ slide.titleB }}</span>
                 </component>
-                <p class="hero-anim mt-6 max-w-md text-base leading-relaxed text-ink-soft lg:text-lg" style="--i: 2">
+                <p class="hero-anim mt-3 max-w-md text-[0.85rem] font-medium leading-snug text-black sm:mt-6 sm:text-base sm:font-normal sm:leading-relaxed sm:text-ink-soft lg:text-lg lg:text-white/80" style="--i: 2">
                   {{ slide.lead }}
                 </p>
-                <AppButton :to="localePath(slide.to)" class="hero-anim mt-8" style="--i: 3">{{ slide.cta }}</AppButton>
+                <div class="mt-4 sm:mt-8 lg:hidden">
+                  <AppButton :to="localePath(slide.to)" class="hero-anim" style="--i: 3">{{ slide.cta }}</AppButton>
+                </div>
+                <div class="mt-8 hidden lg:block">
+                  <AppButton :to="localePath(slide.to)" variant="light" class="hero-anim" style="--i: 3">{{ slide.cta }}</AppButton>
+                </div>
               </div>
             </div>
           </SwiperSlide>
         </Swiper>
 
-        <div class="hero-fade-top pointer-events-none absolute inset-x-0 top-0 z-10 h-44" aria-hidden="true" />
+        <div class="hero-fade-top pointer-events-none lg:hidden absolute inset-x-0 top-0 z-10 h-44" aria-hidden="true" />
 
         <!-- Bottom row: stats (left) + the 3 slides as controls (right) -->
         <div
@@ -65,12 +70,12 @@
               v-for="(stat, i) in stats"
               :key="stat.title"
               class="flex min-w-0 flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-3 sm:pr-8"
-              :class="i > 0 ? 'sm:border-l sm:border-ink/15 sm:pl-8' : ''"
+              :class="i > 0 ? 'sm:border-l sm:border-ink/15 sm:pl-8 lg:border-white/20' : ''"
             >
-              <component :is="statIcons[i]" class="h-7 w-7 shrink-0 text-ink-soft" aria-hidden="true" />
+              <component :is="statIcons[i]" class="h-7 w-7 shrink-0 text-ink-soft lg:text-sage" aria-hidden="true" />
               <span class="leading-tight">
-                <span class="block text-xs font-bold text-ink sm:text-sm">{{ stat.title }}</span>
-                <span class="block text-[0.7rem] text-ink-soft sm:text-xs">{{ stat.text }}</span>
+                <span class="block text-xs font-bold text-ink sm:text-sm lg:text-white">{{ stat.title }}</span>
+                <span class="block text-[0.7rem] text-ink-soft sm:text-xs lg:text-white/65">{{ stat.text }}</span>
               </span>
             </li>
           </ul>
