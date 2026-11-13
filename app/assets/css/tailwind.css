@@ -196,7 +196,7 @@
 /* Home: header overlays the hero panel exactly (negative margin = own height). */
 .site-header--home {
   --hdr-px: calc(var(--canvas-p) + var(--shell-p));
-  top: calc(0.75rem - var(--canvas-p) - var(--shell-p));
+  top: 0;
   padding: calc(var(--canvas-p) + var(--shell-p)) var(--hdr-px) 0;
   margin-bottom: calc(-1 * (var(--canvas-p) + var(--shell-p) + var(--hdr-h)));
 }
